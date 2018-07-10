@@ -1,15 +1,14 @@
 # daily-inspo
 pip install twilio
 python setup.py install
-$sid = '<AccountSid>';
-$token = '<AuthToken>';
-$client = new Client($sid, $token);
+from twilio.rest import Client
 
-$client->messages->create(
-  '<customer_phone_number>',
-  array(
-    'from' => '<your_twilio_number>',
-    'body' => 'Thanks for your order! On a scale of 1-10 would you recommend ' .
-              '[company_name] to a friend? Reply with the number 1 to 10 to this message.',
-  )
-);
+# Your Account SID from twilio.com/console
+account_sid = ""
+# Your Auth Token from twilio.com/console
+auth_token  = ""
+
+client = Client(account_sid, auth_token)
+myTwilioNumber = '+16314029977'
+to = ''
+message = client.messages.create(body=
